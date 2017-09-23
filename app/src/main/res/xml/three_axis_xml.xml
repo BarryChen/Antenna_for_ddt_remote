@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:dialogTitle="请选择类型"
+        android:entries="@array/three_axis_func_entries"
+        android:entryValues="@array/three_axis_func_entries_value"
+        android:key="three_axis_func"
+        android:summary="子功能码选择"
+        android:title="子功能码" />
+
+    <ListPreference
+        android:dialogTitle="请选择类型"
+        android:entries="@array/three_axis_type_entries"
+        android:entryValues="@array/three_axis_type_entries_value"
+        android:key="three_axis_type"
+        android:summary="操作类型选择"
+        android:title="操作类型" />
+
+</PreferenceScreen>

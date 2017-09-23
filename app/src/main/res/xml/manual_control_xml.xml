@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="manual_type"
+        android:dialogTitle="请选择类型"
+        android:entries="@array/manual_control_func_entries"
+        android:entryValues="@array/manual_control_func_entries_value"
+        android:summary="子功能码选择"
+        android:title="子功能码" />
+
+    <EditTextPreference
+        android:key="manual_data"
+        android:dialogTitle="写入数据值:"
+        android:inputType="numberDecimal|numberSigned"
+        android:summary="写入数据（精度为0.01）"
+        android:title="写入数据" />
+
+</PreferenceScreen>

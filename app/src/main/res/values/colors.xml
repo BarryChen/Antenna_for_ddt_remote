@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="main_top_color_1">#202E31</color>
+    <color name="main_top_color_2">#626A77</color>
+    <color name="main_text_color">#FFFFFF</color>
+    <color name="main_item_click">#5E9CCD</color>
+    <color name="main_text_color_click">#000000</color>
+    <color name="call_answer_color">#42B56A</color>
+    <color name="call_refuse_color">#DD4458</color>
+    <color name="newPhone_number_click">#07161D</color>
+    <color name="newPhone_Number_press">#41B469</color>
+    <color name="newPhone_CallButton_click">#878D7F</color>
+    <color name="incall_timeText_color">#5DA47C</color>
+    <color name="antenna_item_press">#CCCCCC</color>
+    <color name="antenna_step_text_color">#30B930</color>
+
+    <color name="signal_00_10">#FF0000</color>
+    <color name="signal_10_20">#FF8000</color>
+    <color name="signal_20_30">#FFFF00</color>
+    <color name="signal_30_50">#A7FF00</color>
+    <color name="signal_50_99">#00FF00</color>
+
+    <color name="message_boxType_color">#33D777</color>
+    <color name="call_record_state_receiver">#4D4D4D</color>
+    <color name="choose_haed_normal">#e6e6e6</color>
+
+    <color name="btn_normal">#888888</color>
+
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:dialogTitle="请选择类型"
+        android:entries="@array/version_entries"
+        android:entryValues="@array/version_entries_value"
+        android:key="version_func_type"
+        android:summary="版本的选择和查询功能"
+        android:title="功能类型" />
+
+    <EditTextPreference
+        android:dialogTitle="产品编号数据:"
+        android:hint="版本号：有效值0~4095"
+        android:inputType="number"
+        android:key="version_data"
+        android:summary="版本号：有效值0~4095"
+        android:title="产品编号数据设置" />
+
+</PreferenceScreen>

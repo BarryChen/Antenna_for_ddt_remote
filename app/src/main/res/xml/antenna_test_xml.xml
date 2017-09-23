@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="rotation_type"
+        android:title="转动类型"
+        android:summary="天线旋转方向设置"
+        android:entries="@array/antenna_test_fuc_entries"
+        android:entryValues="@array/antenna_test_fuc_entries_value"
+        android:dialogTitle="请选择类型"/>
+
+    <EditTextPreference
+        android:key="angle_value"
+        android:inputType="numberDecimal|numberSigned"
+        android:dialogTitle="输入转动的角度值:"
+        android:hint="范围:-2880°~+2880°，精度为0.1"
+        android:summary="负角度表示逆时针，正角度表示顺时针(范围:-2880°~+2880°，精度为0.1)"
+        android:title="转动的角度值设置" />
+
+</PreferenceScreen>

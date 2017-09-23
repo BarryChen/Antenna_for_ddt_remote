@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:dialogTitle="请选择类型"
+        android:entries="@array/target_satellite_entries"
+        android:entryValues="@array/target_satellite_entries_value"
+        android:key="target_type"
+        android:summary="目标星参数设置"
+        android:title="目标星参数" />
+
+    <EditTextPreference
+        android:dialogTitle="输入卫星经度:"
+        android:hint="范围:-180°~180°，精度为0.01"
+        android:inputType="numberSigned|numberDecimal"
+        android:key="target_longitude"
+        android:summary="东经为负，西经为正(范范围:-180°~180°，精度为0.01)"
+        android:title="卫星经度值设置" />
+
+    <ListPreference
+        android:dialogTitle="请选择类型"
+        android:entries="@array/receiver_type_satellite_entries"
+        android:entryValues="@array/receiver_type_entries_value"
+        android:key="target_receiver_type"
+        android:summary="接收机类型设置"
+        android:title="接收机类型" />
+
+    <ListPreference
+        android:dialogTitle="请选择类型"
+        android:entries="@array/polarity_type_satellite_entries"
+        android:entryValues="@array/polarity_type_entries_value"
+        android:key="target_polarity"
+        android:summary="极化方式设置"
+        android:title="极化方式" />
+
+    <EditTextPreference
+        android:dialogTitle="输入频率:"
+        android:inputType="numberSigned|numberDecimal"
+        android:key="target_freq"
+        android:summary="频率设定，单位为kHz"
+        android:title="频率值设置" />
+
+    <EditTextPreference
+        android:dialogTitle="输入符号率:"
+        android:inputType="numberSigned|numberDecimal"
+        android:key="target_sign_freq"
+        android:summary="单位为kbps"
+        android:title="卫星经度值设置" />
+
+    <EditTextPreference
+        android:dialogTitle="输入门限:"
+        android:inputType="numberSigned|numberDecimal"
+        android:key="target_threshold"
+        android:summary="精度0.1"
+        android:title="门限值设置" />
+
+</PreferenceScreen>

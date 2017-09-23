@@ -1,0 +1,139 @@
+<resources>
+    <string name="app_name">Antenna</string>
+
+    <string-array name="receiver_entries_value">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="receiver_entries">
+        <item>信号跟踪</item>
+        <item>Modem</item>
+    </string-array>
+
+    <string-array name="antenna_test_fuc_entries_value">
+        <item>17</item>
+        <item>33</item>
+        <item>18</item>
+        <item>34</item>
+    </string-array>
+
+    <string-array name="antenna_test_fuc_entries">
+        <item>方位顺时针</item>
+        <item>方向逆时针</item>
+        <item>俯仰顺时针</item>
+        <item>俯仰逆时针</item>
+    </string-array>
+
+    <string-array name="version_entries_value">
+        <item>1</item>
+        <item>2</item>
+        <item>16</item>
+        <item>32</item>
+        <item>48</item>
+        <item>49</item>
+    </string-array>
+
+    <string-array name="version_entries">
+        <item>主程序版本</item>
+        <item>配置版本</item>
+        <item>硬件版本</item>
+        <item>机械结构版本</item>
+        <item>产品编号查询</item>
+        <item>产品编号写入</item>
+    </string-array>
+
+
+    <string-array name="target_satellite_entries_value">
+        <item>1</item>
+        <item>17</item>
+    </string-array>
+
+    <string-array name="target_satellite_entries">
+        <item>查询目标星参数</item>
+        <item>设定目标星参数</item>
+    </string-array>
+
+    <string-array name="receiver_type_entries_value">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="receiver_type_satellite_entries">
+        <item>信标机</item>
+        <item>DVB</item>
+    </string-array>
+
+    <string-array name="polarity_type_entries_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="polarity_type_satellite_entries">
+        <item>垂直</item>
+        <item>水平</item>
+        <item>左旋</item>
+        <item>右旋</item>
+    </string-array>
+
+    <string-array name="manual_control_func_entries_value">
+
+        <item>17</item>
+        <item>33</item>
+        <item>65</item>
+        <item>81</item>
+
+        <item>18</item>
+        <item>34</item>
+        <item>66</item>
+        <item>82</item>
+
+        <item>19</item>
+        <item>35</item>
+        <item>67</item>
+        <item>83</item>
+
+    </string-array>
+
+    <string-array name="manual_control_func_entries">
+        <item>方位步长设置</item>
+        <item>方位速度设置</item>
+        <item>方位步长查询</item>
+        <item>方位速度查询</item>
+        <item>俯仰步长设置</item>
+        <item>俯仰速度设置</item>
+        <item>俯仰步长查询</item>
+        <item>俯仰速度查询</item>
+        <item>极化步长设置</item>
+        <item>极化速度设置</item>
+        <item>极化步长查询</item>
+        <item>极化速度查询</item>
+    </string-array>
+
+    <string-array name="three_axis_func_entries_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="three_axis_func_entries">
+        <item>进入手动</item>
+        <item>退出手动</item>
+        <item>手动调整方位</item>
+        <item>手动调整横滚</item>
+    </string-array>
+
+    <string-array name="three_axis_type_entries_value">
+        <item>1</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="three_axis_type_entries">
+        <item>增加（开始）</item>
+        <item>减少一步</item>
+    </string-array>
+</resources>
