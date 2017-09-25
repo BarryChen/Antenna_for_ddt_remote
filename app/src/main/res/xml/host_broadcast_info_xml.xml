@@ -7,7 +7,7 @@
         android:inputType="numberSigned|numberDecimal"
         android:key="host_snr"
         android:summary="范围:-10 ~ 100，精度为0.01"
-        android:title="信噪比(SNR)设置" />
+        android:title="信噪比(SNR)(-10 ~ 100,精度0.01)" />
 
     <SwitchPreference
         android:key="host_position_status"
@@ -20,7 +20,7 @@
         android:inputType="numberSigned|numberDecimal"
         android:key="host_longitude"
         android:summary="东经为负，西经为正(范围:-180 ~ 180，精度为0.01)"
-        android:title="经度信息设置" />
+        android:title="经度信息(-180 ~ 180,精度0.01)" />
 
     <EditTextPreference
         android:dialogTitle="输入纬度信息:"
@@ -28,7 +28,7 @@
         android:inputType="numberSigned|numberDecimal"
         android:key="host_latitude"
         android:summary="南纬为正，北纬为负(范围:-90 ~ 90，精度为0.01)"
-        android:title="纬度信息设置" />
+        android:title="纬度信息(-90 ~ 90,精度0.01)" />
 
     <ListPreference
         android:dialogTitle="请选择类型"
@@ -44,7 +44,7 @@
         android:inputType="numberSigned|numberDecimal"
         android:key="host_freq"
         android:summary="信号频率"
-        android:title="信号频率" />
+        android:title="信号频率(-1000 ~ 1000，精度为0.1)" />
 
     <EditTextPreference
         android:dialogTitle="请输入接收信号强度:"
@@ -52,7 +52,7 @@
         android:inputType="numberSigned|numberDecimal"
         android:key="host_rsl"
         android:summary="表征解调模块接收的特定的载波信号的输入功率(有效范围为-50~-150dBm，精度为0.01)"
-        android:title="接收信号强度设置" />
+        android:title="接收信号强度(-50 ~ -150,精度0.01)" />
 
 
 </PreferenceScreen>

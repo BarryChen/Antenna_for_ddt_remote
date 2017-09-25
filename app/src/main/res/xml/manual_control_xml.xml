@@ -14,6 +14,6 @@
         android:dialogTitle="写入数据值:"
         android:inputType="numberDecimal|numberSigned"
         android:summary="写入数据（精度为0.01）"
-        android:title="写入数据" />
+        android:title="写入数据(精度为0.01)" />
 
 </PreferenceScreen>

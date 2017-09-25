@@ -15,6 +15,6 @@
         android:inputType="number"
         android:key="version_data"
         android:summary="版本号：有效值0~4095"
-        android:title="产品编号数据设置" />
+        android:title="产品编号数据(写入有效值0~4095)" />
 
 </PreferenceScreen>

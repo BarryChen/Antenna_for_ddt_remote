@@ -15,7 +15,7 @@
         android:inputType="numberSigned|numberDecimal"
         android:key="target_longitude"
         android:summary="东经为负，西经为正(范范围:-180°~180°，精度为0.01)"
-        android:title="卫星经度值设置" />
+        android:title="卫星经度值(-180 ~ 180，精度为0.01)" />
 
     <ListPreference
         android:dialogTitle="请选择类型"
@@ -38,7 +38,7 @@
         android:inputType="numberSigned|numberDecimal"
         android:key="target_freq"
         android:summary="频率设定，单位为kHz"
-        android:title="频率值设置" />
+        android:title="频率值(-1000 ~ 1000,精度为0.1)" />
 
     <EditTextPreference
         android:dialogTitle="输入符号率:"
@@ -52,6 +52,6 @@
         android:inputType="numberSigned|numberDecimal"
         android:key="target_threshold"
         android:summary="精度0.1"
-        android:title="门限值设置" />
+        android:title="门限值(精度为0.1)" />
 
 </PreferenceScreen>

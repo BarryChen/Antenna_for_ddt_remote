@@ -15,6 +15,6 @@
         android:dialogTitle="输入转动的角度值:"
         android:hint="范围:-2880°~+2880°，精度为0.1"
         android:summary="负角度表示逆时针，正角度表示顺时针(范围:-2880°~+2880°，精度为0.1)"
-        android:title="转动的角度值设置" />
+        android:title="转动的角度值(-2880 ~ +2880,精度为0.1)" />
 
 </PreferenceScreen>
