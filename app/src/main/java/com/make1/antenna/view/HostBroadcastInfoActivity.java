@@ -38,6 +38,7 @@ public class HostBroadcastInfoActivity extends PreferenceActivity implements Sha
     private EditTextPreference mLatitude;
     private ListPreference mReceiverType;
     private EditTextPreference mRsl;
+    private EditTextPreference mFreq;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class HostBroadcastInfoActivity extends PreferenceActivity implements Sha
         mLongitude = (EditTextPreference) findPreference("host_longitude");
         mLatitude = (EditTextPreference) findPreference("host_latitude");
         mRsl = (EditTextPreference) findPreference("host_rsl");
+        mFreq = (EditTextPreference) findPreference("host_freq");
 
         mPositionStatus = (SwitchPreference) findPreference("host_position_status");
 
@@ -78,7 +80,8 @@ public class HostBroadcastInfoActivity extends PreferenceActivity implements Sha
         switch (item.getItemId()) {
             case R.id.send:
                 if (getHostSnrValue() instanceof Boolean || getLongitudeValue() instanceof Boolean
-                        || getLatitudeValue() instanceof Boolean || getRslValue() instanceof Boolean) {
+                        || getLatitudeValue() instanceof Boolean || getRslValue() instanceof Boolean
+                        || getHostFreqValue() instanceof Boolean) {
                     Logger.e("无法发送消息帧");
                 } else {
                     Logger.i("主机端信息：" + AntennaCommand.sendMessageToAntenna(AntennaData.FUNCTION_CODE_HOST_BRODCAST
@@ -89,7 +92,7 @@ public class HostBroadcastInfoActivity extends PreferenceActivity implements Sha
                                     , DataFormatUtil.objectToTwoHex(getLongitudeValue())
                                     , DataFormatUtil.objectToTwoHex(getLatitudeValue())
                                     , DataFormatUtil.objectToOneHex(getReceiverTypeValue())
-                                    , "" // TODO: 2017/9/23 还有4Byte的频率未动态获取
+                                    , DataFormatUtil.freqToFourHex(getHostFreqValue())
                                     , DataFormatUtil.objectToTwoHex(getRslValue()))));
 
                 }
@@ -109,6 +112,7 @@ public class HostBroadcastInfoActivity extends PreferenceActivity implements Sha
         setRslSummary();
         setPositionStatusSummary();
         setReceiverTypeSummary();
+        setHostFreqSummary();
     }
 
     @Override
@@ -137,6 +141,9 @@ public class HostBroadcastInfoActivity extends PreferenceActivity implements Sha
                 break;
             case "host_receiver_type":
                 setReceiverTypeSummary();
+                break;
+            case "host_freq":
+                setHostFreqSummary();
                 break;
 
         }
@@ -258,13 +265,13 @@ public class HostBroadcastInfoActivity extends PreferenceActivity implements Sha
      * 设置Receiver Type的Summary
      */
     private void setReceiverTypeSummary() {
-        if(mReceiverType.getSummary()!=null) {
+        if (mReceiverType.getSummary() != null) {
             if (mReceiverType.getSummary().equals("")) {
                 mReceiverType.setSummary("请设置接收机类型");
             } else {
                 mReceiverType.setSummary(mReceiverType.getEntry());
             }
-        }else{
+        } else {
             mReceiverType.setSummary(mReceiverType.getEntry());
         }
     }
@@ -280,5 +287,28 @@ public class HostBroadcastInfoActivity extends PreferenceActivity implements Sha
         } else {
             return Integer.valueOf(mReceiverType.getValue());
         }
+    }
+
+    /**
+     * 设置Freq Snr的Summary
+     */
+    private void setHostFreqSummary() {
+        if (mFreq.getText() != null) {
+            if (mFreq.getText().trim().isEmpty()) {
+                mFreq.setSummary("请设置信号频率");
+            } else {
+                mFreq.setSummary(mFreq.getText());
+            }
+        }
+    }
+
+    /**
+     * 获取Freq Snr的值
+     *
+     * @return Int
+     */
+    private Object getHostFreqValue() {
+        String result = mFreq.getText();
+        return checkValueFormat(this, result, 1000, -1000, 1);
     }
 }

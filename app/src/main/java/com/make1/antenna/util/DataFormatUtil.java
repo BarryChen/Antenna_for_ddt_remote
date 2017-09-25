@@ -164,4 +164,40 @@ public class DataFormatUtil {
             return false;
         }
     }
+
+    /**
+     * 将信号频率转为4byte的hex
+     *
+     * @param value
+     * @return
+     */
+    public static String freqToFourHex(Object value) {
+        String result;
+
+        if (value instanceof Double) {
+            result = Integer.toHexString(Double.valueOf((Double) value * 10).intValue());
+        } else if (value instanceof Integer) {
+            result = Integer.toHexString((Integer) value);
+        } else {
+            result = "";
+        }
+
+        switch (result.length()) {
+            case 1:
+                return "0000000" + result;
+            case 2:
+                return "000000" + result;
+            case 3:
+                return "00000" + result;
+            case 4:
+                return "0000" + result;
+            case 5:
+                return "000" + result;
+            case 6:
+                return "00" + result;
+            case 7:
+                return "0" + result;
+        }
+        return result;
+    }
 }

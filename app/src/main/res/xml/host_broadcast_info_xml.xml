@@ -38,7 +38,13 @@
         android:summary="接收机类型设置"
         android:title="接收机类型" />
 
-    <!-- todo 这里还有4byte的信号频率设置 -->
+    <EditTextPreference
+        android:dialogTitle="请输入信号频率:"
+        android:hint="精度为0.1"
+        android:inputType="numberSigned|numberDecimal"
+        android:key="host_freq"
+        android:summary="信号频率"
+        android:title="信号频率" />
 
     <EditTextPreference
         android:dialogTitle="请输入接收信号强度:"
