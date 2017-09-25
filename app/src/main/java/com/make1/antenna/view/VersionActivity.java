@@ -81,15 +81,26 @@ public class VersionActivity extends PreferenceActivity implements SharedPrefere
         switch (item.getItemId()) {
             case R.id.send:
                 Logger.d("Senddddddddddddddd");
-                if (getVersionData() instanceof Boolean) {
-                    Logger.d("无法发送消息帧");
+
+                //只有功能为写入时，才需要判断写入的数据是否正确
+                if (mVersionType.getValue().equals("49")) {
+                    if (getVersionData() instanceof Boolean) {
+                        Logger.d("无法发送消息帧");
+                    } else {
+                        Logger.i("版本信息:" + AntennaCommand.sendMessageToAntenna(AntennaData.FUNCTION_CODE_VERSION_CONTROL
+                                , AntennaData.TO_ADDRESS, AntennaDataCombineUtil
+                                        .combineVersionInfoData(DataFormatUtil
+                                                        .objectToOneHex(getVersionTypeValue())
+                                                , DataFormatUtil.objectToTwoHex(getVersionData()))));
+                    }
                 } else {
                     Logger.i("版本信息:" + AntennaCommand.sendMessageToAntenna(AntennaData.FUNCTION_CODE_VERSION_CONTROL
                             , AntennaData.TO_ADDRESS, AntennaDataCombineUtil
                                     .combineVersionInfoData(DataFormatUtil
-                                                    .objectToOneHex(getVersionTypeValue())
-                                            , DataFormatUtil.objectToTwoHex(getVersionData()))));
+                                            .objectToOneHex(getVersionTypeValue()), "")));
                 }
+
+
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -119,7 +130,7 @@ public class VersionActivity extends PreferenceActivity implements SharedPrefere
             } else {
                 mVersionType.setSummary(mVersionType.getEntry());
             }
-        }else{
+        } else {
             mVersionType.setSummary(mVersionType.getEntry());
         }
     }
