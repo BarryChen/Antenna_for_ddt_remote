@@ -16,6 +16,7 @@ import com.make1.antenna.data.AntennaData;
 import com.make1.antenna.util.AntennaCommand;
 import com.make1.antenna.util.AntennaDataCombineUtil;
 import com.make1.antenna.util.DataFormatUtil;
+import com.make1.antenna.util.ToastUtil;
 import com.orhanobut.logger.Logger;
 
 import static com.make1.antenna.util.DataFormatUtil.checkValueFormat;
@@ -28,7 +29,7 @@ import static com.make1.antenna.util.DataFormatUtil.checkValueFormat;
  */
 
 public class AntennaTestActivity extends PreferenceActivity implements
-        SharedPreferences.OnSharedPreferenceChangeListener{
+        SharedPreferences.OnSharedPreferenceChangeListener {
 
     private ActionBar mActionBar;
 
@@ -80,6 +81,7 @@ public class AntennaTestActivity extends PreferenceActivity implements
             case R.id.send:
                 if (getAngleValue() instanceof Boolean) {
                     Logger.e("无法发送消息帧");
+                    ToastUtil.showShort(this, "转动角度范围输入数据有误！");
                 } else {
                     Logger.i("天线测试:" + AntennaCommand.sendMessageToAntenna(
                             AntennaData.FUNCTION_CODE_SERVO_TEST
@@ -114,7 +116,7 @@ public class AntennaTestActivity extends PreferenceActivity implements
             } else {
                 mRotationType.setSummary(mRotationType.getEntry());
             }
-        }else{
+        } else {
             mRotationType.setSummary(mRotationType.getEntry());
         }
     }

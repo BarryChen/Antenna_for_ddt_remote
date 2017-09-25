@@ -17,6 +17,7 @@ import com.make1.antenna.data.AntennaData;
 import com.make1.antenna.util.AntennaCommand;
 import com.make1.antenna.util.AntennaDataCombineUtil;
 import com.make1.antenna.util.DataFormatUtil;
+import com.make1.antenna.util.ToastUtil;
 import com.orhanobut.logger.Logger;
 
 import static com.make1.antenna.util.DataFormatUtil.checkValueFormat;
@@ -79,11 +80,7 @@ public class HostBroadcastInfoActivity extends PreferenceActivity implements Sha
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.send:
-                if (getHostSnrValue() instanceof Boolean || getLongitudeValue() instanceof Boolean
-                        || getLatitudeValue() instanceof Boolean || getRslValue() instanceof Boolean
-                        || getHostFreqValue() instanceof Boolean) {
-                    Logger.e("无法发送消息帧");
-                } else {
+                if (hintErrorByValue()) {
                     Logger.i("主机端信息：" + AntennaCommand.sendMessageToAntenna(AntennaData.FUNCTION_CODE_HOST_BRODCAST
                             , AntennaData.TO_ADDRESS
                             , AntennaDataCombineUtil.combineBroadcastInfoData(DataFormatUtil
@@ -94,11 +91,35 @@ public class HostBroadcastInfoActivity extends PreferenceActivity implements Sha
                                     , DataFormatUtil.objectToOneHex(getReceiverTypeValue())
                                     , DataFormatUtil.freqToFourHex(getHostFreqValue())
                                     , DataFormatUtil.objectToTwoHex(getRslValue()))));
-
                 }
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * 提示用户具体哪一个参数值有问题
+     */
+    private boolean hintErrorByValue() {
+        if (getHostSnrValue() instanceof Boolean) {
+            ToastUtil.showShort(this, "信噪比设置有误!");
+            return false;
+        } else if (getLongitudeValue() instanceof Boolean) {
+            ToastUtil.showShort(this, "经度信息设置有误!");
+            return false;
+        } else if (getLatitudeValue() instanceof Boolean) {
+            ToastUtil.showShort(this, "纬度信息设置有误!");
+            return false;
+        } else if (getRslValue() instanceof Boolean) {
+            ToastUtil.showShort(this, "接收信号强度信息设置有误!");
+            return false;
+        } else if (getHostFreqValue() instanceof Boolean) {
+            ToastUtil.showShort(this, "信号频率设置有误!");
+            return false;
+        } else {
+            Logger.d("参数没有问题");
+            return true;
+        }
     }
 
     @Override

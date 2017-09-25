@@ -16,6 +16,7 @@ import com.make1.antenna.data.AntennaData;
 import com.make1.antenna.util.AntennaCommand;
 import com.make1.antenna.util.AntennaDataCombineUtil;
 import com.make1.antenna.util.DataFormatUtil;
+import com.make1.antenna.util.ToastUtil;
 import com.orhanobut.logger.Logger;
 
 import static com.make1.antenna.util.DataFormatUtil.checkValueFormat;
@@ -95,10 +96,7 @@ public class TargetSatelliteActivity extends PreferenceActivity implements Share
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.send:
-                if (getLongitudeValue() instanceof Boolean || getFreqValue() instanceof Boolean
-                        || getSignFreqValue() instanceof Boolean || getThresholdValue() instanceof Boolean) {
-                    Logger.d("无法发送消息帧");
-                } else {
+                if (hintErrorByValue()) {
                     Logger.i("目标卫星配置:" + AntennaCommand.sendMessageToAntenna(AntennaData.FUNCTION_CODE_TARGET_SATELLITE_CONTROL
                             , AntennaData.TO_ADDRESS, AntennaDataCombineUtil
                                     .combineSatelliteConfigData(DataFormatUtil
@@ -113,6 +111,24 @@ public class TargetSatelliteActivity extends PreferenceActivity implements Share
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private boolean hintErrorByValue() {
+        if (getLongitudeValue() instanceof Boolean) {
+            ToastUtil.showShort(this, "卫星经度输入有误！");
+            return false;
+        } else if (getFreqValue() instanceof Boolean) {
+            ToastUtil.showShort(this, "频率输入有误！");
+            return false;
+        } else if (getSignFreqValue() instanceof Boolean) {
+            ToastUtil.showShort(this, "符号率输入有误！");
+            return false;
+        } else if (getThresholdValue() instanceof Boolean) {
+            ToastUtil.showShort(this, "门限输入有误！");
+            return false;
+        } else {
+            return true;
+        }
     }
 
     @Override
@@ -152,7 +168,7 @@ public class TargetSatelliteActivity extends PreferenceActivity implements Share
             } else {
                 mType.setSummary(mType.getEntry());
             }
-        }else{
+        } else {
             mType.setSummary(mType.getEntry());
         }
     }
@@ -203,7 +219,7 @@ public class TargetSatelliteActivity extends PreferenceActivity implements Share
             } else {
                 mReceiverType.setSummary(mReceiverType.getEntry());
             }
-        }else{
+        } else {
             mReceiverType.setSummary(mReceiverType.getEntry());
         }
     }
@@ -231,7 +247,7 @@ public class TargetSatelliteActivity extends PreferenceActivity implements Share
             } else {
                 mPolarity.setSummary(mPolarity.getEntry());
             }
-        }else{
+        } else {
             mPolarity.setSummary(mPolarity.getEntry());
         }
     }

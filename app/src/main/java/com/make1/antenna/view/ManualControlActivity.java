@@ -16,6 +16,7 @@ import com.make1.antenna.data.AntennaData;
 import com.make1.antenna.util.AntennaCommand;
 import com.make1.antenna.util.AntennaDataCombineUtil;
 import com.make1.antenna.util.DataFormatUtil;
+import com.make1.antenna.util.ToastUtil;
 import com.orhanobut.logger.Logger;
 
 import static com.make1.antenna.util.DataFormatUtil.checkValueFormat;
@@ -80,9 +81,7 @@ public class ManualControlActivity extends PreferenceActivity implements SharedP
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.send:
-                if (getManualDataValue() instanceof Boolean) {
-                    Logger.d("无法发送消息帧");
-                } else {
+                if (hintErrorByValue()) {
                     Logger.i("手动控制步长...:" + AntennaCommand.sendMessageToAntenna(AntennaData.FUNCTION_CODE_MANUAL_CONTROL
                             , AntennaData.TO_ADDRESS
                             , AntennaDataCombineUtil
@@ -92,6 +91,15 @@ public class ManualControlActivity extends PreferenceActivity implements SharedP
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private boolean hintErrorByValue() {
+        if (getManualDataValue() instanceof Boolean) {
+            ToastUtil.showShort(this, "数据输入有误！");
+            return false;
+        } else {
+            return true;
+        }
     }
 
     @Override
@@ -140,7 +148,7 @@ public class ManualControlActivity extends PreferenceActivity implements SharedP
             } else {
                 mManualFunc.setSummary(mManualFunc.getEntry());
             }
-        }else{
+        } else {
             mManualFunc.setSummary(mManualFunc.getEntry());
         }
     }
