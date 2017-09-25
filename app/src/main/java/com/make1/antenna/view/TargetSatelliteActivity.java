@@ -106,7 +106,7 @@ public class TargetSatelliteActivity extends PreferenceActivity implements Share
                                             , DataFormatUtil.objectToTwoHex(getLongitudeValue())
                                             , DataFormatUtil.objectToOneHex(getReceiverTypeValue())
                                             , DataFormatUtil.objectToOneHex(getPolarityTypeValue())
-                                            , ""// TODO: 2017/9/23 还有4Byte的频率未动态获取
+                                            , DataFormatUtil.freqToFourHex(getFreqValue())
                                             , DataFormatUtil.objectToOneHex(getSignFreqValue())
                                             , DataFormatUtil.objectToOneHex(getThresholdValue()))));
                 }
