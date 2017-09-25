@@ -81,6 +81,7 @@ public class HostBroadcastInfoActivity extends PreferenceActivity implements Sha
         switch (item.getItemId()) {
             case R.id.send:
                 if (hintErrorByValue()) {
+                    ToastUtil.showShort(this,"发送成功！");
                     Logger.i("主机端信息：" + AntennaCommand.sendMessageToAntenna(AntennaData.FUNCTION_CODE_HOST_BRODCAST
                             , AntennaData.TO_ADDRESS
                             , AntennaDataCombineUtil.combineBroadcastInfoData(DataFormatUtil

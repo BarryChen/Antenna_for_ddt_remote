@@ -97,6 +97,7 @@ public class TargetSatelliteActivity extends PreferenceActivity implements Share
         switch (item.getItemId()) {
             case R.id.send:
                 if (hintErrorByValue()) {
+                    ToastUtil.showShort(this,"发送成功！");
                     Logger.i("目标卫星配置:" + AntennaCommand.sendMessageToAntenna(AntennaData.FUNCTION_CODE_TARGET_SATELLITE_CONTROL
                             , AntennaData.TO_ADDRESS, AntennaDataCombineUtil
                                     .combineSatelliteConfigData(DataFormatUtil

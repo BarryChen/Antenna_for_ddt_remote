@@ -82,6 +82,7 @@ public class ManualControlActivity extends PreferenceActivity implements SharedP
         switch (item.getItemId()) {
             case R.id.send:
                 if (hintErrorByValue()) {
+                    ToastUtil.showShort(this,"发送成功！");
                     Logger.i("手动控制步长...:" + AntennaCommand.sendMessageToAntenna(AntennaData.FUNCTION_CODE_MANUAL_CONTROL
                             , AntennaData.TO_ADDRESS
                             , AntennaDataCombineUtil

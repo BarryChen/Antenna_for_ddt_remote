@@ -83,6 +83,7 @@ public class AntennaTestActivity extends PreferenceActivity implements
                     Logger.e("无法发送消息帧");
                     ToastUtil.showShort(this, "转动角度范围输入数据有误！");
                 } else {
+                    ToastUtil.showShort(this,"发送成功！");
                     Logger.i("天线测试:" + AntennaCommand.sendMessageToAntenna(
                             AntennaData.FUNCTION_CODE_SERVO_TEST
                             , AntennaData.TO_ADDRESS

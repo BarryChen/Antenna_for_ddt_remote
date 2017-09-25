@@ -15,6 +15,7 @@ import com.make1.antenna.data.AntennaData;
 import com.make1.antenna.util.AntennaCommand;
 import com.make1.antenna.util.AntennaDataCombineUtil;
 import com.make1.antenna.util.DataFormatUtil;
+import com.make1.antenna.util.ToastUtil;
 import com.orhanobut.logger.Logger;
 
 /**
@@ -77,6 +78,7 @@ public class ThreeAxisActivity extends PreferenceActivity implements SharedPrefe
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.send:
+                ToastUtil.showShort(this,"发送成功！");
                 Logger.i("手动控制三轴命令...:" + AntennaCommand.sendMessageToAntenna(AntennaData.FUNCTION_CODE_AXIS_CONTROL
                         , AntennaData.TO_ADDRESS, AntennaDataCombineUtil
                                 .combineManualControlData(DataFormatUtil.objectToOneHex(getThreeAxisFuncValue())

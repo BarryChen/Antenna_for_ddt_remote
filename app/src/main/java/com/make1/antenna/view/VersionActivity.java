@@ -16,6 +16,7 @@ import com.make1.antenna.data.AntennaData;
 import com.make1.antenna.util.AntennaCommand;
 import com.make1.antenna.util.AntennaDataCombineUtil;
 import com.make1.antenna.util.DataFormatUtil;
+import com.make1.antenna.util.ToastUtil;
 import com.orhanobut.logger.Logger;
 
 import static com.make1.antenna.util.DataFormatUtil.checkValueFormat;
@@ -80,13 +81,12 @@ public class VersionActivity extends PreferenceActivity implements SharedPrefere
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.send:
-                Logger.d("Senddddddddddddddd");
-
                 //只有功能为写入时，才需要判断写入的数据是否正确
                 if (mVersionType.getValue().equals("49")) {
                     if (getVersionData() instanceof Boolean) {
                         Logger.d("无法发送消息帧");
                     } else {
+                        ToastUtil.showShort(this, "发送成功！");
                         Logger.i("版本信息:" + AntennaCommand.sendMessageToAntenna(AntennaData.FUNCTION_CODE_VERSION_CONTROL
                                 , AntennaData.TO_ADDRESS, AntennaDataCombineUtil
                                         .combineVersionInfoData(DataFormatUtil
@@ -94,6 +94,7 @@ public class VersionActivity extends PreferenceActivity implements SharedPrefere
                                                 , DataFormatUtil.objectToTwoHex(getVersionData()))));
                     }
                 } else {
+                    ToastUtil.showShort(this, "发送成功！");
                     Logger.i("版本信息:" + AntennaCommand.sendMessageToAntenna(AntennaData.FUNCTION_CODE_VERSION_CONTROL
                             , AntennaData.TO_ADDRESS, AntennaDataCombineUtil
                                     .combineVersionInfoData(DataFormatUtil
