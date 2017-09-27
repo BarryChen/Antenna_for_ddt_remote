@@ -35,7 +35,7 @@
         android:name=".app.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="天线控制终端"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Holo.Light">
@@ -70,6 +70,10 @@
             android:launchMode="singleTask"/>
 
         <activity android:name=".view.ThreeAxisActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"/>
+
+        <activity android:name=".view.PortSettingActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTask"/>
     </application>

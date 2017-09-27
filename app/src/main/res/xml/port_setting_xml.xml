@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:dialogTitle="串口设置(例如：/dev/tty37):"
+        android:inputType="text"
+        android:key="port_data"
+        android:hint="/dev/tty37"
+        android:summary="设置通讯的串口（例如：“/dev/tty37”）"
+        android:title="设置与动中通通讯的串口" />
+
+</PreferenceScreen>

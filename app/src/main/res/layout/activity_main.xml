@@ -15,20 +15,29 @@
         android:orientation="vertical">
 
         <!-- 标题 -->
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center">
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:id="@+id/main_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="天线控制程序V1.0"
                 android:textColor="@color/main_text_color"
                 android:textSize="15sp"
                 tools:text="天线控制程序" />
-        </LinearLayout>
+
+            <ImageView
+                android:id="@+id/mImgSettings"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="25dp"
+                android:background="@mipmap/ic_setting" />
+        </RelativeLayout>
 
         <!-- 信息提示 -->
         <LinearLayout

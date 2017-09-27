@@ -2,6 +2,7 @@ package com.make1.antenna.app;
 
 import android.app.Application;
 
+import com.make1.antenna.util.AntennaPreferences;
 import com.make1.antenna.util.ToastUtil;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.CsvFormatStrategy;
@@ -40,5 +41,7 @@ public class BaseApplication extends Application {
         Logger.addLogAdapter(new DiskLogAdapter(diskFormatStrategy));
 
         ToastUtil.controlShow(true);
+
+        AntennaPreferences.getInstance().init(this);
     }
 }
